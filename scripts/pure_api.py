@@ -1,5 +1,6 @@
 import requests
 import json
+from security import safe_requests
 
 BASE_URL = "http://127.0.0.1:8000/"
 
@@ -26,7 +27,7 @@ def get_list():
 
     for item in data:
         if item['id'] == 1:
-            r2 = requests.get(BASE_URL + ENDPOINT + str(item['id']))
+            r2 = safe_requests.get(BASE_URL + ENDPOINT + str(item['id']))
             # print(r2.json())
 
     return data
@@ -62,10 +63,10 @@ get_endpoint = BASE_URL + ENDPOINT_status + str(15)
 
 
 # get response without auth..
-r = requests.get(get_endpoint)
+r = safe_requests.get(get_endpoint)
 print(r.text)
 
-r2 = requests.get(get_endpoint)
+r2 = safe_requests.get(get_endpoint)
 print(r2.status_code)
 
 post_headers = {

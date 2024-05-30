@@ -8,7 +8,8 @@ ENDPOINT_status = "status/"
 AUTH_ENDPOINT = BASE_URL + ENDPOINT_status + "/auth/jwt/"
 
 
-def do(method='get', data={}, is_json=True):
+def do(method='get', data=None, is_json=True):
+    data = {} if data is None else data
     headers = {}
     if is_json:
         headers['content-type'] = 'application/json'

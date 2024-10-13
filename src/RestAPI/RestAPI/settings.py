@@ -135,3 +135,4 @@ MEDIA_URL = '/media/'
 
 
 from RestAPI.restconf.main import *
+SESSION_COOKIE_SECURE = True
